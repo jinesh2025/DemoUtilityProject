@@ -64,14 +64,8 @@ public class NetworkHelper {
 	}
 
 	public void zapGet(String url,
-	                   final VolleyCallback callback,
-	                   final List<ParamChild> params) {
+	                   final VolleyCallback callback) {
 		OkHttpClient client = new OkHttpClient();
-
-		RequestBody requestBody = new CustomMultiPartBody.Builder()
-				.setType(MultipartBody.FORM)
-				.addFormDataPart(params)
-				.build();
 		try {
 			getOkhttp(client, url, new Callback() {
 				@Override

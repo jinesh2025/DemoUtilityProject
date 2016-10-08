@@ -1,6 +1,7 @@
 package co.codecrunch.demoutilityproject;
 
 import android.os.Bundle;
+import android.support.annotation.BoolRes;
 import android.support.v7.widget.Toolbar;
 
 import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
@@ -49,20 +50,34 @@ public class MainActivity extends BaseActivity {
 
 
 
-		//EXAMPLE Netowrk
-		List<ParamChild> paramImage = new ArrayList<>();
-		paramImage.add(new ParamChild("key", "media_image_path"));
+		//EXAMPLE Network
 
-
+		//Params - key,value
 		List<ParamChild> param = new ArrayList<>();
 		param.add(new ParamChild("key", "value"));
 
+
+		List<ParamChild> paramImage = new ArrayList<>();
+		paramImage.add(new ParamChild("key", "media_image_path"));
+
+		//OKHTTP Zap Connectors
+		//Fast GET
 		networkHelper.zapGet("url", new NetworkHelper.VolleyCallback() {
 			@Override
 			public void onSuccess(Boolean success, String data) {
 
 			}
-		}, param);
+		});
+
+		//Fast POST
+		networkHelper.zapPost("url", new NetworkHelper.VolleyCallback() {
+			@Override
+			public void onSuccess(Boolean success, String data) {
+
+			}
+		},param);
+
+		//Volley for queue management, using OKHTTP as HTTP connector over top of volley for fast connections
 
 		//For Image Upload
 		networkHelper.volleyMultipartImageUpload("url", new NetworkHelper.VolleyCallback() {
@@ -85,11 +100,28 @@ public class MainActivity extends BaseActivity {
 			 }
 		 });
 
+		 networkHelper.volleyGet("url", param ,new NetworkHelper.VolleyCallback() {
+			 @Override
+			 public void onSuccess(Boolean success, String data) {
+
+			 }
+		 });
+
+		 networkHelper.volleyPost("url", param ,new NetworkHelper.VolleyCallback() {
+			 @Override
+			 public void onSuccess(Boolean success, String data) {
+
+			 }
+		 });
+
 		// more in networkHelper
 
 		//Preference helper
 		preferenceHelper.saveStringPreferences("key","value");
 		String val = preferenceHelper.loadSavedStringPreferences("key");
+
+		preferenceHelper.saveBooleanPreferences("key",true);
+		Boolean aBoolean = preferenceHelper.loadSavedBooleanPreferences("key");
 
 		//check Permission
 		Boolean permCheck = isPermissionGranted(getApplicationContext(), PermissionUtils.Manifest_CAMERA);

@@ -8,7 +8,7 @@ import android.util.Log;
  */
 
 public class Logger {
-	private static String TAG = BaseAppActivity.TAG;
+	private static String TAG = BaseAppActivity.getTAG();
 
 	public static void v(String msg) {
 		if (!BuildConfig.DEBUG) Log.v(TAG, msg);

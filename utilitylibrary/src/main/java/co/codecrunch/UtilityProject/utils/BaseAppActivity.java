@@ -33,16 +33,20 @@ import co.codecrunch.UtilityProject.permission.ActivityManagePermission;
  */
 public class BaseAppActivity extends ActivityManagePermission {
 
-	public static String TAG = "jinesh_log";
+	private static String TAG = "jinesh_log";
 	private NetworkConnectivity networkConnectivity;
-	Toolbar toolbar = null;
-	Activity activity;
-	ProgressDialog pDialog;
+	private Toolbar toolbar = null;
+	private Activity activity;
+	private ProgressDialog pDialog;
 	public NetworkHelper networkHelper;
 	public PreferenceHelper preferenceHelper;
 
 	public static void setTAG(String tag){
 		TAG = tag;
+	}
+
+	public static String getTAG(){
+		return TAG;
 	}
 
 	public void hideSoftKeyboard(Activity activity) {
