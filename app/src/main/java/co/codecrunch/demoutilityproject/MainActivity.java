@@ -3,6 +3,8 @@ package co.codecrunch.demoutilityproject;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
+import com.koushikdutta.urlimageviewhelper.UrlImageViewHelper;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -122,6 +124,8 @@ public class MainActivity extends BaseActivity {
 		//Fore more option look BaseAppActivity
 		BaseAppActivity baseAppActivity;
 
+		//Caching and settign image to imageview fom network
+		//UrlImageViewHelper.setUrlDrawable(imageview,"url",R.drawable.loading_img);
 
 
 	}
