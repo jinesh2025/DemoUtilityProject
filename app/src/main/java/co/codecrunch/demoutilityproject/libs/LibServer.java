@@ -28,7 +28,7 @@ public class LibServer {
 		param.add(new ParamChild("id", id));
 		param.add(new ParamChild("pass", pass));
 
-		networkHelper.zapGet("url", new NetworkHelper.VolleyCallback() {
+		networkHelper.zapPost("url", new NetworkHelper.VolleyCallback() {
 			@Override
 			public void onSuccess(Boolean success, String data) {
 				callback.onSuccess(success,data);
